@@ -28,7 +28,6 @@ int test_run_make_run_root(void) {
     assert_not_equal(root->weights[root->network.count - 1].values, NULL);
     
     free_run_root(root);
-    free(input_data);
     free(configs);
     
     return 0;
@@ -45,8 +44,6 @@ int test_run_free_run_root(void) {
     
     assert_equal(result, 0);
     
-    free_run_root(root);
-    free(input_data);
     free(configs);
     
     return 0;
@@ -105,8 +102,6 @@ int test_run_make_network(void) {
         }
     }
     
-    free(weights);
-    free(input_data);
     free_run_network(net);
     free(configs);
     
@@ -125,8 +120,6 @@ int test_run_free_network(void) {
     
     assert_equal(result, 0);
     
-    free(input_data);
-    free(weights);
     free(configs);
     
     return 0;
@@ -149,9 +142,6 @@ int test_run_free_layer(void) {
     
     assert_equal(result, 0);
     
-    free(input_data);
-    free(weights);
-    free_run_network(net);
     free(configs);
     
     return 0;

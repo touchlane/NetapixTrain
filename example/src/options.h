@@ -1,13 +1,13 @@
 //
-//  utils.h
+//  options.h
 //  netapix
 //
 //  Created by Pavel Kondrashkov on 6/27/18.
 //  Copyright © 2018 Touchlane LLC. All rights reserved.
 //
 
-#ifndef utils_h
-#define utils_h
+#ifndef options_h
+#define options_h
 
 #include <stdio.h>
 
@@ -26,4 +26,4 @@ int prepare_output_path(char *output_path, int force_create);
 int copy_file(char *from_path, char *to_path);
 int copy_param_files(char *config_file_path, char *weights_file_path, char *output_path);
 
-#endif /* utils_h */
+#endif /* options_h */

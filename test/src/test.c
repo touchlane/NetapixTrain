@@ -51,7 +51,6 @@ int main() {
     test(test_loss_forward, "loss test loss forward.");
     test(test_loss_backward_scalar_msqe, "loss test loss backward scalar msqe.");
     test(test_loss_backward_softmax_msqe, "loss test loss backward softmax msqe.");
-    test(test_loss_backward_scalar_cross_entropy, "loss test loss backward scalar cross entropy.");
     test(test_loss_backward_softmax_cross_entropy, "loss test loss backward softmax cross entropy.");
     
     test(test_run_make_run_root, "run test make run root.");

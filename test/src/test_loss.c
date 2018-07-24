@@ -118,29 +118,6 @@ int test_loss_backward_softmax_msqe(void) {
     return 0;
 }
 
-int test_loss_backward_scalar_cross_entropy(void) {
-    layer_config config = stub_loss_config(CROSS_ENTROPY);
-    float input[] = { 0.909297427, -0.544921111 }; // sin(2), sin(10)
-    float *previous_gradient = calloc(config.output_length, sizeof(*previous_gradient));
-    float input_derivative[] = { -0.416146837, -0.839071529 }; // cos(2), cos(10)
-    float *error = calloc(1, sizeof(*error));
-
-    loss_layer *layer = make_loss_layer(config, previous_gradient, input, input_derivative, error, SCALAR_DERIVATIVE_MODE);
-    layer->target[0] = 0.1;
-    layer->target[1] = 0.9;
-    
-    loss_backward(layer);
-    
-    assert_equal_float(layer->previous_gradients[0], 0.0457657555);
-    assert_equal_float(layer->previous_gradients[1], -1.38582331);
-    
-    free(previous_gradient);
-    free(error);
-    free_loss_layer(layer);
-    
-    return 0;
-}
-
 int test_loss_backward_softmax_cross_entropy(void) {
     layer_config config = stub_loss_config(CROSS_ENTROPY);
     float input[] = { 0.909297427, -0.544921111 }; // sin(2), sin(10)
