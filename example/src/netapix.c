@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "utils.h"
+#include "options.h"
 #include "constants.h"
 
 int train_mode(int argc, char *argv[]);

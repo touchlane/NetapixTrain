@@ -1,12 +1,12 @@
 //
-//  utils.c
+//  options.c
 //  netapix
 //
 //  Created by Pavel Kondrashkov on 6/27/18.
 //  Copyright © 2018 Touchlane LLC. All rights reserved.
 //
 
-#include "utils.h"
+#include "options.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>

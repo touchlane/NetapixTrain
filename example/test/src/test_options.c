@@ -1,16 +1,16 @@
 //
-//  test_utils.c
+//  test_options.c
 //  netapix
 //
 //  Created by Pavel Kondrashkov on 6/27/18.
 //  Copyright © 2018 Touchlane LLC. All rights reserved.
 //
 
-#include "test_utils.h"
+#include "test_options.h"
 #include "unit_test.h"
-#include "utils.h"
+#include "options.h"
 
-int test_utils_determine_run_mode_defined(void) {
+int test_options_determine_run_mode_defined(void) {
     int argc = 2;
     char *argv[] = { "netapix", "train" };
     
@@ -20,7 +20,7 @@ int test_utils_determine_run_mode_defined(void) {
     return 0;
 }
 
-int test_utils_determine_run_mode_not_defined(void) {
+int test_options_determine_run_mode_not_defined(void) {
     int argc = 2;
     char *argv[] = { "netapix", "somemode" };
     
@@ -30,7 +30,7 @@ int test_utils_determine_run_mode_not_defined(void) {
     return 0;
 }
 
-int test_utils_determine_run_mode_not_specified(void) {
+int test_options_determine_run_mode_not_specified(void) {
     int argc = 1;
     char *argv[] = { "netapix" };
     
@@ -40,7 +40,7 @@ int test_utils_determine_run_mode_not_specified(void) {
     return 0;
 }
 
-int test_utils_remove_ext(void) {
+int test_options_remove_ext(void) {
     char str1[] = "../../path/folder/config.npx";
     char str2[] = "./config.npx";
     char str3[] = "/config.npx";
@@ -58,7 +58,7 @@ int test_utils_remove_ext(void) {
     return 0;
 }
 
-int test_utils_last_path_component(void) {
+int test_options_last_path_component(void) {
     char str1[] = "../../path/folder/config.npx";
     char str2[] = "./config.npx";
     char str3[] = "/config.npx";
@@ -76,7 +76,7 @@ int test_utils_last_path_component(void) {
     return 0;
 }
 
-int test_utila_make_output_save_path(void) {
+int test_options_make_output_save_path(void) {
     char *base_path = "./";
     char *output_name = "output";
     
