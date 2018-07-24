@@ -9,10 +9,6 @@
 #ifndef config_h
 #define config_h
 
-
-
-//_____________________________
-
 typedef enum {
     CONVOLUTIONAL,
     CONNECTED,
@@ -56,8 +52,6 @@ typedef enum {
     XAVIER,
     NDEF_INITIALIZATION
 } weights_init_type;
-
-//______________________________
 
 typedef struct npx_option {
     char *key;
