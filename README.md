@@ -1,6 +1,6 @@
 # Netapix
 
-![LOGO](https://github.com/touchlane/Netapix/blob/master/Assets/logo.svg)
+![LOGO](https://github.com/touchlane/Netapix/blob/master/assets/logo.svg)
 
 # Requirements
 
