@@ -11,7 +11,7 @@ CC           = gcc
 LIB_INCLUDE  = -I./include/ -I./src/
 LIB_CFLAGS   = $(LIB_INCLUDE) -w
 
-all: lib
+all: example
 
 # Compile and Assemble C Source Files into Object Files.
 %.o: $(LIB_SRC_DIR)/%.c
@@ -30,8 +30,8 @@ lib_mkdir:
 lib: lib_mkdir $(ALIB)
 
 # Call example's makefile to compile example app.
-example:
-	make -f ./example/config.mk
+example: lib
+	make -f ./example/config.mk example_app
 
 # Call lib's tests makefile to compile test executable and run tests with code coverage generation.
 lib_test:
