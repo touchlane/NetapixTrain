@@ -1,0 +1,18 @@
+*.o
+*.gcda
+*.gcno
+*.npx
+*.a
+
+
+## Xcode
+*.xcodeproj
+Index/
+Build/
+Debug/
+project/
+bin/
+lib/
+
+## OS Generated
+.DS_Store
