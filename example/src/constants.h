@@ -10,7 +10,7 @@
 #define constants_h
 
 #define FATAL_ERROR_NETAPIX_MODE_USAGE_FAIL_MSG "usage: %s [train | run]\n"
-#define FATAL_ERROR_NETAPIX_MODE_TRAIN_USAGE_FAIL_MSG "usage: %s %s [path/config.npw] [path/dataset/*.npt] [path/weights.npw (optional)]\n"
+#define FATAL_ERROR_NETAPIX_MODE_TRAIN_USAGE_FAIL_MSG "usage: %s %s [path/config.npx] [path/dataset/*.npt] [path/weights.npw (optional)]\n"
 #define FATAL_ERROR_NETAPIX_MODE_RUN_USAGE_FAIL_MSG "usage: %s %s [path/input.npi] [path/weights.npw] [path/output/ (optional)]\n"
 #define FATAL_ERROR_REMOVING_OUTPUT_DIRECTORY_FAIL_MSG "Could not remove output directory %s.\n"
 #define FATAL_ERROR_COPY_FILE_FAIL_MSG "Could not copy file from %s to %s.\n"
