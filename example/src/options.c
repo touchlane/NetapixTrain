@@ -92,7 +92,7 @@ char *make_output_save_path(char *base_path, char *directory_name) {
 
 int copy_param_files(char *config_file_path, char *weights_file_path, char *output_path) {
     if (config_file_path) {
-        char *config_file_name = last_path_component(config_file_path);
+        char *config_file_name = "config.npx";
         char *config_copy_file_path = malloc((strlen(output_path) +
                                               strlen(config_file_name) + 1) * sizeof(char));
         sprintf(config_copy_file_path, "%s%s", output_path, config_file_name);
