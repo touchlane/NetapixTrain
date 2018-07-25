@@ -188,6 +188,14 @@ int train(char *npx_path, char *train_path, char *weights_path, char *output_pat
     while (root->params->prev_error > root->npx->settings->accuracy) {
         root->params->train_set_number = epoch % root->data_set->count;
         shuffle(root->data_set->training_set[root->params->train_set_number]);
+        if (epoch == 0 && output_path != NULL) {
+            char *initial_weights_path = malloc((strlen(output_path) +
+                                                 strlen("0.npw") + 1) * sizeof(*initial_weights_path));
+            strcpy(initial_weights_path, output_path);
+            strcat(initial_weights_path, "0.npw");
+            write_npw(initial_weights_path, root->weights, root->npx->net, root->npx->size - 1);
+            free(initial_weights_path);
+        }
         for (i = 0; i < iterations_in_seen; i++) {
             root->params->iteration_number = i;
             pthread_t compute_threads[root->npx->settings->batch];
@@ -219,8 +227,8 @@ int train(char *npx_path, char *train_path, char *weights_path, char *output_pat
             printf("Iteration: %d  Error: %f\n", iteration, average(root->params->batch_errors, root->npx->settings->batch));
         }
         float error = cross_validation(validation, root->params->train_set_number);
-        printf("Epoch: %d Cross Validation Error: %f\n", epoch, error);
         epoch = epoch + 1;
+        printf("Epoch: %d Cross Validation Error: %f\n", epoch, error);
         update_params(root->params, error);
     }
     sem_close(sem);
