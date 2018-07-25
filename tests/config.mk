@@ -11,12 +11,17 @@ TEST_EXEC    = $(TEST_EXEC_PATH)/test
 # Compiler, Include, Linker Defines.
 CC           = gcc
 LIB_INCLUDE  = -I./include/ -I./src/
-LIB_CFTEST   = $(LIB_INCLUDE) -coverage -w -O0 -std=c99 -o $(TEST_EXEC)
+LIB_CFTEST   = $(LIB_INCLUDE) -w -O0 -std=c99 -o $(TEST_EXEC)
 
-# Create a test running Executable with coverage turned on.
+# Create a test running Executable.
 lib_test: lib_test_mkdir
 	$(CC) $(LIB_CFTEST) $(addprefix $(LIB_TEST_DIR)/, $(TEST_SRC)) $(addprefix $(LIB_SRC_DIR)/, $(LIB_SRC))
-	rm -rf $(TEST_SRC:.c=.gcda) $(TEST_SRC:.c=.gcno)
+	./tests/bin/test
+
+# Create a test running Executable with coverage turned on.
+lib_test_coverage: lib_test_mkdir
+	$(CC) $(LIB_CFTEST) -coverage $(addprefix $(LIB_TEST_DIR)/, $(TEST_SRC)) $(addprefix $(LIB_SRC_DIR)/, $(LIB_SRC))
+	@rm -rf $(TEST_SRC:.c=.gcda) $(TEST_SRC:.c=.gcno)
 	./tests/bin/test
 
 # Create obj directory for bin file.
@@ -28,4 +33,4 @@ lib_test_clean:
 	rm -rf $(TEST_EXEC_PATH)
 	rm -rf $(TEST_SRC:.c=.gcda) $(TEST_SRC:.c=.gcno)
 
-.PHONY: lib_test lib_test_clean
+.PHONY: lib_test lib_test_coverage lib_test_clean 
