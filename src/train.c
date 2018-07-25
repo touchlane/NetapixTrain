@@ -211,7 +211,7 @@ int train(char *npx_path, char *train_path, char *weights_path, char *output_pat
                 pthread_join(update_threads[j], NULL);
             }
             int iteration = epoch*iterations_in_seen + i;
-            if (iteration % npx->settings->save_frequency == 0 && output_path != NULL) {
+            if (iteration != 0 && iteration % npx->settings->save_frequency == 0 && output_path != NULL) {
                 char buffer_path[4096];
                 sprintf(buffer_path, "%s%d.npw", output_path, iteration);
                 write_npw(buffer_path, root->weights, root->npx->net, root->npx->size - 1);

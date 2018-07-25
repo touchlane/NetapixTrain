@@ -120,6 +120,7 @@ int copy_file(char *from_path, char *to_path) {
     }
     to_file = fopen(to_path, "wb");
     if (!to_file) {
+        fclose(from_file);
         return 1;
     }
     size_t read_data, write_data;
@@ -133,8 +134,12 @@ int copy_file(char *from_path, char *to_path) {
         }
     } while ((read_data > 0) && (read_data == write_data));
     if (write_data) {
+        fclose(from_file);
+        fclose(to_file);
         return 1;
     }
+    fclose(from_file);
+    fclose(to_file);
     return 0;
 }
 
