@@ -92,7 +92,7 @@ char *make_output_save_path(char *base_path, char *directory_name) {
 
 int copy_param_files(char *config_file_path, char *weights_file_path, char *output_path) {
     if (config_file_path) {
-        char *config_file_name = last_path_component(config_file_path);
+        char *config_file_name = "config.npx";
         char *config_copy_file_path = malloc((strlen(output_path) +
                                               strlen(config_file_name) + 1) * sizeof(char));
         sprintf(config_copy_file_path, "%s%s", output_path, config_file_name);
@@ -120,6 +120,7 @@ int copy_file(char *from_path, char *to_path) {
     }
     to_file = fopen(to_path, "wb");
     if (!to_file) {
+        fclose(from_file);
         return 1;
     }
     size_t read_data, write_data;
@@ -133,8 +134,12 @@ int copy_file(char *from_path, char *to_path) {
         }
     } while ((read_data > 0) && (read_data == write_data));
     if (write_data) {
+        fclose(from_file);
+        fclose(to_file);
         return 1;
     }
+    fclose(from_file);
+    fclose(to_file);
     return 0;
 }
 

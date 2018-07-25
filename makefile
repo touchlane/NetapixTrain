@@ -33,13 +33,21 @@ lib: lib_mkdir $(ALIB)
 example: lib
 	make -f ./example/config.mk example_app
 
-# Call lib's tests makefile to compile test executable and run tests with code coverage generation.
+# Call lib's tests makefile to compile test executable and run tests.
 lib_test:
-	make -f ./test/config.mk lib_test
+	make -f ./tests/config.mk lib_test
+
+# Call lib's tests makefile to compile test executable and run tests with code coverage generation.
+lib_test_coverage:
+	make -f ./tests/config.mk lib_test_coverage
+
+# Call example's tests makefile to compile test executable and run tests.
+example_test:
+	make -f ./example/tests/config.mk example_test
 
 # Call example's tests makefile to compile test executable and run tests with code coverage generation.
-example_test:
-	make -f ./example/test/config.mk example_test
+example_test_coverage:
+	make -f ./example/tests/config.mk example_test_coverage
 
 # Call both example's tests and lib's tests.
 test: example_test lib_test
@@ -52,7 +60,7 @@ lib_clean:
 # Call all clean up dependencies to perform full clean.
 clean: lib_clean
 	make -f ./example/config.mk example_clean
-	make -f ./example/test/config.mk example_test_clean
-	make -f ./test/config.mk lib_test_clean
+	make -f ./example/tests/config.mk example_test_clean
+	make -f ./tests/config.mk lib_test_clean
 
 .PHONY: lib example lib_test example_test test clean
