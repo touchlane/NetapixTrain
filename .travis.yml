@@ -1,0 +1,7 @@
+language: c
+
+script:
+  - make lib_test_coverage
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
