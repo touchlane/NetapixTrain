@@ -184,18 +184,19 @@ int train(char *npx_path, char *train_path, char *weights_path, char *output_pat
     
     int epoch = 0;
     root->params->prev_error = cross_validation(validation, 0);
-    printf("Start: Cross Validation Error: %f\n", root->params->prev_error);
+    printf("Epoch:%d  Iteration:0  Cross Validation Error:%f\n", epoch, root->params->prev_error);
+    if (output_path != NULL) {
+        char *initial_weights_path = malloc((strlen(output_path) +
+                                             strlen("0.npw") + 1) * sizeof(*initial_weights_path));
+        strcpy(initial_weights_path, output_path);
+        strcat(initial_weights_path, "0.npw");
+        write_npw(initial_weights_path, root->weights, root->npx->net, root->npx->size - 1);
+        free(initial_weights_path);
+    }
+    int iteration = 0;
     while (root->params->prev_error > root->npx->settings->accuracy) {
         root->params->train_set_number = epoch % root->data_set->count;
         shuffle(root->data_set->training_set[root->params->train_set_number]);
-        if (epoch == 0 && output_path != NULL) {
-            char *initial_weights_path = malloc((strlen(output_path) +
-                                                 strlen("0.npw") + 1) * sizeof(*initial_weights_path));
-            strcpy(initial_weights_path, output_path);
-            strcat(initial_weights_path, "0.npw");
-            write_npw(initial_weights_path, root->weights, root->npx->net, root->npx->size - 1);
-            free(initial_weights_path);
-        }
         for (i = 0; i < iterations_in_seen; i++) {
             root->params->iteration_number = i;
             pthread_t compute_threads[root->npx->settings->batch];
@@ -218,17 +219,17 @@ int train(char *npx_path, char *train_path, char *weights_path, char *output_pat
             for (j = 0; j < train_weights_count; j++) {
                 pthread_join(update_threads[j], NULL);
             }
-            int iteration = epoch*iterations_in_seen + i;
+            iteration = epoch*iterations_in_seen + i;
             if (iteration != 0 && iteration % npx->settings->save_frequency == 0 && output_path != NULL) {
                 char buffer_path[4096];
                 sprintf(buffer_path, "%s%d.npw", output_path, iteration);
                 write_npw(buffer_path, root->weights, root->npx->net, root->npx->size - 1);
             }
-            printf("Iteration: %d  Error: %f\n", iteration, average(root->params->batch_errors, root->npx->settings->batch));
+            printf("Iteration:%d  Error:%f\n", iteration, average(root->params->batch_errors, root->npx->settings->batch));
         }
         float error = cross_validation(validation, root->params->train_set_number);
         epoch = epoch + 1;
-        printf("Epoch: %d Cross Validation Error: %f\n", epoch, error);
+        printf("Epoch:%d  Iteration:%d  Cross Validation Error:%f\n", epoch, iteration, error);
         update_params(root->params, error);
     }
     sem_close(sem);
@@ -248,7 +249,7 @@ int update_params(train_params *params, float error) {
             } else {
                 params->eta = params->eta * params->beta;
             }
-            printf("Updating params: deltaError: %f, learning rate: %f\n", error - params->gamma * params->prev_error, params->eta);
+            printf("Updating train params, delta error: %f, new learning rate is %f\n", error - params->gamma * params->prev_error, params->eta);
             params->prev_error = error;
             break;
         case NDEF_LEARN:
