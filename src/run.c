@@ -165,25 +165,25 @@ int read_npi(char *path, float **input, int *input_size) {
 
 int write_npo(char *path, float *output, int output_length) {
     /// BINARY MODE
-//    FILE *file = fopen(path, "wb");
-//    if (!file) {
-//        printf(ERROR_OPEN_FILE_MSG, path);
-//        return ERROR_OPEN;
-//    }
-//    fwrite(output, sizeof(*output), output_length, file);
-//    fclose(file);
-//
-    /// TEXT MODE
-    FILE *file = fopen(path, "w");
+    FILE *file = fopen(path, "wb");
     if (!file) {
         printf(ERROR_OPEN_FILE_MSG, path);
         return ERROR_OPEN;
     }
-    int i;
-    for (i = 0; i < output_length; ++i) {
-        fprintf(file, i == 0 ? "%f" : ", %f", output[i]);
-    }
+    fwrite(output, sizeof(*output), output_length, file);
     fclose(file);
+
+    /// TEXT MODE
+//    FILE *file = fopen(path, "w");
+//    if (!file) {
+//        printf(ERROR_OPEN_FILE_MSG, path);
+//        return ERROR_OPEN;
+//    }
+//    int i;
+//    for (i = 0; i < output_length; ++i) {
+//        fprintf(file, i == 0 ? "%f" : ", %f", output[i]);
+//    }
+//    fclose(file);
     return 0;
 }
 

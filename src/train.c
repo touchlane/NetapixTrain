@@ -559,15 +559,6 @@ int read_npt(char *path, float *input, float *target, int input_length, int targ
         return ERROR_FORMAT;
     }
     
-    //TODO: Remove this shit
-    //------------------------------
-    
-    for (int i = 0; i < input_length; i++) {
-        input[i] = input[i] / 255.0;
-    }
-    
-    //------------------------------
-    
     success = fread(target, sizeof(*target), target_length, file);
     if (success != target_length) {
         printf(FATAL_ERROR_NPT_TARGET_FORMAT_FAIL_MSG, target_length, (int)success, path);
