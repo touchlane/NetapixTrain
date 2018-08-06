@@ -35,19 +35,19 @@ example: lib
 
 # Call lib's tests makefile to compile test executable and run tests.
 lib_test:
-	make -f ./tests/config.mk lib_test
+	make -f ./tests/config.mk lib_netapix_test
 
 # Call lib's tests makefile to compile test executable and run tests with code coverage generation.
 lib_test_coverage:
-	make -f ./tests/config.mk lib_test_coverage
+	make -f ./tests/config.mk lib_netapix_test_coverage
 
 # Call example's tests makefile to compile test executable and run tests.
 example_test:
-	make -f ./example/tests/config.mk example_test
+	make -f ./example/tests/config.mk example_app_test
 
 # Call example's tests makefile to compile test executable and run tests with code coverage generation.
 example_test_coverage:
-	make -f ./example/tests/config.mk example_test_coverage
+	make -f ./example/tests/config.mk example_app_test_coverage
 
 # Call both example's tests and lib's tests.
 test: example_test lib_test
