@@ -13,12 +13,12 @@ APP_INCLUDE  = -I./include/ -I./$(APP_SRC_DIR)
 APP_CFTEST   = $(APP_INCLUDE) -w -O0 -std=c99 -o $(TEST_EXEC)
 
 # Create a test running Executable.
-example_test: example_test_mkdir
+example_app_test: example_test_mkdir
 	$(CC) $(APP_CFTEST) $(addprefix $(APP_TEST_DIR)/, $(TEST_SRC)) $(addprefix $(APP_SRC_DIR)/, $(filter-out netapix.c, $(APP_SRC)))
 	example/tests/bin/test
 	
 # Create a test running Executable with coverage turned on.
-example_test_coverage: example_test_mkdir
+example_app_test_coverage: example_test_mkdir
 	$(CC) $(APP_CFTEST) -coverage $(addprefix $(APP_TEST_DIR)/, $(TEST_SRC)) $(addprefix $(APP_SRC_DIR)/, $(filter-out netapix.c, $(APP_SRC)))
 	@rm -rf $(TEST_SRC:.c=.gcda) $(TEST_SRC:.c=.gcno)
 	example/tests/bin/test
@@ -32,4 +32,4 @@ example_test_clean:
 	rm -rf $(TEST_EXEC_PATH)
 	rm -rf $(TEST_SRC:.c=.gcda) $(TEST_SRC:.c=.gcno)
 
-.PHONY: example_test example_test_clean
+.PHONY: example_app_test example_test_clean example_app_test_coverage
