@@ -183,6 +183,7 @@ int train(char *npx_path, char *train_path, char *weights_path, char *output_pat
     int i, j;
     
     int epoch = 0;
+    printf("Initial validation...");
     root->params->prev_error = cross_validation(validation, 0);
     printf("Epoch:%d  Iteration:0  Cross Validation Error:%f\n", epoch, root->params->prev_error);
     if (output_path != NULL) {
