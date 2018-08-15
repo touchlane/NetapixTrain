@@ -32,7 +32,7 @@ example_mkdir:
 
 # Clean Up Exectuable, Objects, Library, Coverage files d
 example_clean:
-	rm -rf $(EXEC) $(APP_OBJ_DIR)
+	rm -rf $(EXEC_PATH) $(APP_OBJ_DIR)
 	rm -rf $(APP_SRC:.c=.gcda) $(APP_SRC:.c=.gcno) 
 
 .PHONY: example_all example_clean
