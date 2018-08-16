@@ -68,7 +68,9 @@ void convolutional_forward(convolutional_layer *layer) {
                 for (z1 = 0; z1 < layer->z1; z1++) {
                     for (h1 = 0; h1 < layer->h1; h1++) {
                         for (w1 = 0; w1 < layer->w1; w1++) {
-                            *layer->output_tensor[z2][h2][w2] = *layer->output_tensor[z2][h2][w2] + *layer->weights[z2][z1][h1][w1] * (*layer->input_tensor[z1][h2*layer->s + h1 - layer->p][w2*layer->s + w1 - layer->p]);
+                            if (h2*layer->s + h1 - layer->p >= 0 && h2*layer->s + h1 - layer->p < layer->h && w2*layer->s + w1 - layer->p >= 0 && w2*layer->s + w1 - layer->p < layer->w) {
+                                *layer->output_tensor[z2][h2][w2] = *layer->output_tensor[z2][h2][w2] + *layer->weights[z2][z1][h1][w1] * (*layer->input_tensor[z1][h2*layer->s + h1 - layer->p][w2*layer->s + w1 - layer->p]);
+                            }
                         }
                     }
                 }
@@ -123,7 +125,10 @@ void calc_сonvolutional_сorrections(convolutional_layer *layer) {
                 for (w1 = 0; w1 < layer->w1; w1++) {
                     for (h2 = 0; h2 < layer->h2; h2++) {
                         for (w2 = 0; w2 < layer->w2; w2++) {
-                            *layer->corrections[z2][z1][h1][w1] = *layer->corrections[z2][z1][h1][w1] + *layer->gradients_tensor[z2][h2][w2] * *layer->input_tensor[z1][h2 * layer->s + h1 - layer->p][w2 * layer->s + w1 - layer->p];
+                            
+                            if (h2*layer->s + h1 - layer->p >= 0 && h2*layer->s + h1 - layer->p < layer->h && w2*layer->s + w1 - layer->p >= 0 && w2*layer->s + w1 - layer->p < layer->w) {
+                                *layer->corrections[z2][z1][h1][w1] = *layer->corrections[z2][z1][h1][w1] + *layer->gradients_tensor[z2][h2][w2] * *layer->input_tensor[z1][h2 * layer->s + h1 - layer->p][w2 * layer->s + w1 - layer->p];
+                            }
                         }
                     }
                 }
