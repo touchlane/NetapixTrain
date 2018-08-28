@@ -7,12 +7,26 @@
 
 
 # Requirements
-
+Mac OS
 
 # Installation
-
+```
+make
+```
 
 # Usage
+```
+./example/bin/netapix train [NPX_PATH] [NPT_PATH]  
+```
+
+```
+./example/bin/netapix train [NPX_PATH] [NPT_PATH] [NPW_PATH]  
+```
+
+```
+./example/bin/netapix run [NPI_PATH] [NPW_PATH] [OUTPUT_PATH]  
+```
+
 
 
 # Documentation
