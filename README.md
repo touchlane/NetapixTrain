@@ -11,7 +11,7 @@ Mac OS
 
 # Installation
 ```
-make
+make all
 ```
 
 # Usage
