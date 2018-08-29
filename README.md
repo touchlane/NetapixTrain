@@ -6,9 +6,6 @@
 ![Platform](https://img.shields.io/badge/platform-MacOS-lightgrey.svg)
 
 
-# Requirements
-Mac OS
-
 # Installation
 ```
 make all
