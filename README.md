@@ -8,7 +8,7 @@
 
 # Installation
 ```
-make all
+make
 ```
 
 # Usage
