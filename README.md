@@ -52,17 +52,17 @@ Brief overview of the implemented functionality and some insights.
 |width | the width of the input tenzor | 
 |height | the height of the input tenzor | 
 |init | the weights initialization type |
-|validation | number if the training examples required by cross validation (number = total count / validation)|
-|backup |  |
-|learning |  |
-|regularization | |
-|accuracy |  |
-|eta |  |
-|momentum | |
-|lambda | |
-|alpha |  |
-|beta |  |
-|gamma | |
+|validation | indicates the part of the training set reserved for the cross validation |
+|backup | weights save rate |
+|learning | supported optimiziers (for now **gradient** only) |
+|regularization | **L1** or **L2**|
+|accuracy | the target occuracy |
+|eta | start learning rate |
+|momentum | momentum coefficient|
+|lambda | regularization coefficient |
+|alpha | decrease learning rate coefficient|
+|beta |  increase learning rate coefficient |
+|gamma | delta error correction coefficient |
 
 ## Layers
 
