@@ -19,7 +19,7 @@ make
 ./example/bin/netapix train [NPX_PATH] [NPT_PATH]  
 ```
 
-### Continue training the model
+### Continue training existing model
 ```
 ./example/bin/netapix train [NPX_PATH] [NPT_PATH] [NPW_PATH]  
 ```
@@ -32,3 +32,13 @@ make
 
 
 # Documentation
+
+## Netapix formats
+
+### .npx
+
+### .npw
+
+### .npi
+
+### .npo
