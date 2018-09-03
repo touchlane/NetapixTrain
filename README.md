@@ -46,13 +46,13 @@ Brief overview of the implemented functionality and some insights.
 
 | Key |  Comment |
 | ------------- | ------------- |
-|threads |  |
-|batch | |
-|channels | |
-|width | | 
-|height | | 
-|init | |
-|validation |  |
+|threads | number of availbale CPU threads |
+|batch | total number of training examples present in a single batch  |
+|channels | the depth of the input tenzor |
+|width | the width of the input tenzor | 
+|height | the height of the input tenzor | 
+|init | the weights initialization type |
+|validation | number if the training examples required by cross validation (number = total count / validation)|
 |backup |  |
 |learning |  |
 |regularization | |
@@ -64,5 +64,9 @@ Brief overview of the implemented functionality and some insights.
 |beta |  |
 |gamma | |
 
+## Layers
 
+### Connected
+
+### Convolutional
 
