@@ -29,12 +29,10 @@ make
 ./example/bin/netapix run [NPI_PATH] [NPW_PATH] [OUTPUT_PATH]  
 ```
 
-
-
 # Documentation
-Find below brief overview of implemented functionality and some insights.
+Brief overview of the implemented functionality and some insights.
 
-## Netapix formats
+## Formats
 
 ### .npx
 
@@ -43,3 +41,6 @@ Find below brief overview of implemented functionality and some insights.
 ### .npi
 
 ### .npo
+
+## Config
+
