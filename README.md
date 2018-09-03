@@ -32,6 +32,7 @@ make
 
 
 # Documentation
+Find below brief overview of implemented functionality and some insights.
 
 ## Netapix formats
 
