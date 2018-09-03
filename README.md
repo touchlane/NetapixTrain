@@ -47,10 +47,10 @@ Available options to configure training process.
 
 | Key |  Comment |
 | ------------- | ------------- |
-|threads | number of availbale CPU threads |
-|batch | total number of training examples present in a single batch  |
-|channels | the depth of the input tenzor |
-|width | the width of the input tenzor | 
+|**threads** | number of availbale CPU threads |
+|**batch** | total number of training examples present in a single batch  |
+|**channels** | the depth of the input tenzor |
+|**width** | the width of the input tenzor | 
 |height | the height of the input tenzor | 
 |init | the weights initialization type |
 |validation | indicates the part of the training set reserved for the cross validation |
