@@ -49,9 +49,9 @@ Available options to configure training process.
 | ------------- | ------------- |
 |**threads** | number of availbale CPU threads |
 |**batch** | total number of training examples present in a single batch  |
-|**channels** | the depth of the input tenzor (for networks started with convolutional layer) |
-|**width** | the width of the input tenzor (for networks started with convolutional layer) | 
-|**height** | the height of the input tenzor for networks started with convolutional layer | 
+|**channels** | the depth of the input tenzor (for networks having the first layer as convolutional) |
+|**width** | the width of the input tenzor (for networks having the first layer as convolutional) | 
+|**height** | the height of the input tenzor (for networks having the first layer as convolutional) | 
 |**init** | the weights initialization type |
 |**validation** | indicates the part of the training set reserved for the cross validation |
 |**backup** | weights save rate |
@@ -86,5 +86,5 @@ Supported layers.
 ### Loss
 | Key |  Comment |
 | ------------- | ------------- |
-| input |  |
-| activation |  |
+| **input** | the size of the output vector |
+| **activation** | the type of a loss function (**msqe** or **entropy**) |
