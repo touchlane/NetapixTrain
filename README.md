@@ -44,3 +44,25 @@ Brief overview of the implemented functionality and some insights.
 
 ## Config
 
+| Key |  Comment |
+| ------------- | ------------- |
+|threads |  |
+|batch | |
+|channels | |
+|width | | 
+|height | | 
+|init | |
+|validation |  |
+|backup |  |
+|learning |  |
+|regularization | |
+|accuracy |  |
+|eta |  |
+|momentum | |
+|lambda | |
+|alpha |  |
+|beta |  |
+|gamma | |
+
+
+
