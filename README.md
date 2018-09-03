@@ -43,6 +43,7 @@ Brief overview of the implemented functionality and some insights.
 ### .npo
 
 ## Config
+Available options to configure training process.
 
 | Key |  Comment |
 | ------------- | ------------- |
