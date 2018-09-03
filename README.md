@@ -55,8 +55,8 @@ Available options to configure training process.
 |init | the weights initialization type |
 |validation | indicates the part of the training set reserved for the cross validation |
 |backup | weights save rate |
-|learning | supported optimiziers (for now **gradient** only) |
-|regularization | **L1** or **L2**|
+|learning | supported optimiziers (**gradient**) |
+|regularization |regularization type (**L1** or **L2**)|
 |accuracy | the target occuracy |
 |eta | start learning rate |
 |momentum | momentum coefficient|
@@ -66,8 +66,12 @@ Available options to configure training process.
 |gamma | delta error correction coefficient |
 
 ## Layers
+Supported layers
 
 ### Connected
+| Key |  Comment |
+| ------------- | ------------- |
 
 ### Convolutional
-
+| Key |  Comment |
+| ------------- | ------------- |
