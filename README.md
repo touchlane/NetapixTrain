@@ -13,14 +13,18 @@ make
 ```
 
 # Usage
+
+###Train brand new model
 ```
 ./example/bin/netapix train [NPX_PATH] [NPT_PATH]  
 ```
 
+###Continue training the model
 ```
 ./example/bin/netapix train [NPX_PATH] [NPT_PATH] [NPW_PATH]  
 ```
 
+###Test the model
 ```
 ./example/bin/netapix run [NPI_PATH] [NPW_PATH] [OUTPUT_PATH]  
 ```
