@@ -49,29 +49,42 @@ Available options to configure training process.
 | ------------- | ------------- |
 |**threads** | number of availbale CPU threads |
 |**batch** | total number of training examples present in a single batch  |
-|**channels** | the depth of the input tenzor |
-|**width** | the width of the input tenzor | 
-|height | the height of the input tenzor | 
-|init | the weights initialization type |
-|validation | indicates the part of the training set reserved for the cross validation |
-|backup | weights save rate |
-|learning | supported optimiziers (**gradient**) |
-|regularization |regularization type (**L1** or **L2**)|
-|accuracy | the target occuracy |
-|eta | start learning rate |
-|momentum | momentum coefficient|
-|lambda | regularization coefficient |
-|alpha | decrease learning rate coefficient|
-|beta |  increase learning rate coefficient |
-|gamma | delta error correction coefficient |
+|**channels** | the depth of the input tenzor (for networks started with convolutional layer) |
+|**width** | the width of the input tenzor (for networks started with convolutional layer) | 
+|**height** | the height of the input tenzor for networks started with convolutional layer | 
+|**init** | the weights initialization type |
+|**validation** | indicates the part of the training set reserved for the cross validation |
+|**backup** | weights save rate |
+|**learning** | supported optimiziers (**gradient**) |
+|**regularization** |regularization type (**L1** or **L2**)|
+|**accuracy** | the target occuracy |
+|**eta** | start learning rate |
+|**momentum** | momentum coefficient|
+|**lambda** | regularization coefficient |
+|**alpha** | decrease learning rate coefficient|
+|**beta** |  increase learning rate coefficient |
+|**gamma** | delta error correction coefficient |
 
 ## Layers
-Supported layers
+Supported layers.
 
 ### Connected
 | Key |  Comment |
 | ------------- | ------------- |
+| input |  |
+| activation |  |
 
 ### Convolutional
 | Key |  Comment |
 | ------------- | ------------- |
+| width |  |
+| height |  |
+| channels |  |
+| stride |  |
+| padding |  |
+
+### Loss
+| Key |  Comment |
+| ------------- | ------------- |
+| input |  |
+| activation |  |
