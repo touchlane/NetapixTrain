@@ -33,6 +33,8 @@ make
 
 ## Formats
 
+Netapix works with custom formats. There are number of tools for convertion available [here](https://github.com/touchlane/NetapixTools)
+
 ### .npx
 Special format to define network structure and learning policy. See example of simple convolutional network for MNIST dataset below:
 
