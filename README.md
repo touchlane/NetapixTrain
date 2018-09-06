@@ -73,20 +73,36 @@ Supported layers.
 ### Connected
 | Key |  Comment |
 | ------------- | ------------- |
-| input |  |
-| activation |  |
+| input | the output's size of the previous layer |
+| activation | the type of the activation function |
 
 ### Convolutional
 | Key |  Comment |
 | ------------- | ------------- |
-| width |  |
-| height |  |
-| channels |  |
-| stride |  |
-| padding |  |
+| width | filter width |
+| height | filter height |
+| channels | number of filters |
+| stride | controls how the filter convolves around the input volume |
+| padding | positive integer to define the central kernel element |
+| activation | the type of the activation function |
 
 ### Loss
 | Key |  Comment |
 | ------------- | ------------- |
-| **input** | the size of the output vector |
-| **activation** | the type of a loss function (**msqe** or **entropy**) |
+| **input** | the size of the networks's output |
+| **activation** | the type of a loss function |
+
+## Math
+
+### Layers's activations
+
+Supported functions for layer activation
+
+| Key |  Comment |
+| ------------- | ------------- |
+| **linear** | *f(x) = x* |
+| **relu** | *f(x) > 0 ? x : 0* |
+| **logistic**| |
+| **th**| |
+| **softmax**| |
+
