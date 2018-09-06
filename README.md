@@ -30,11 +30,60 @@ make
 ```
 
 # Documentation
-Brief overview of the implemented functionality and some insights.
 
 ## Formats
 
 ### .npx
+Special format to define network structure and learning policy. See example of simple convolutional network for MNIST dataset below:
+
+```
+[config]
+batch=32
+threads=4
+channels=1
+width=28
+height=28
+init=xavier
+validation=10
+backup=5000
+learning=gradient
+regularization=L2
+accuracy=0.00001
+eta=0.01
+momentum=0
+lambda=0
+alpha=0.99
+beta=1.01
+gamma=1.01
+
+[convolutional]
+width=14
+height=14
+channels=100
+stride=1
+padding=0
+activation=relu
+
+[convolutional]
+width=14
+height=14
+channels=10
+stride=1
+padding=0
+activation=relu
+
+[convolutional]
+width=2
+height=2
+channels=10
+stride=1
+padding=0
+activation=relu
+
+[loss]
+input=10
+activation=msqe
+```
 
 ### .npw
 
@@ -45,7 +94,6 @@ Brief overview of the implemented functionality and some insights.
 ### .npo
 
 ## Config
-Available options to configure training process.
 
 | Key |  Comment |
 | ------------- | ------------- |
@@ -68,7 +116,6 @@ Available options to configure training process.
 |**gamma** | delta error correction coefficient |
 
 ## Layers
-Supported layers.
 
 ### Connected
 | Key |  Comment |
@@ -94,15 +141,19 @@ Supported layers.
 
 ## Math
 
-### Layers's activations
-
-Supported functions for layer activation
+### Activation
 
 | Key |  Comment |
 | ------------- | ------------- |
 | **linear** | *f(x) = x* |
 | **relu** | *f(x) > 0 ? x : 0* |
-| **logistic**| |
-| **th**| |
-| **softmax**| |
+| **logistic**| the standard logistic function|
+| **th**| the hyperbolic tangent |
+| **softmax**| the normalized exponential function |
 
+### Loss
+
+| Key |  Comment |
+| ------------- | ------------- |
+| **msqe** | mean squared error |
+| **entropy** | cross entropy |
