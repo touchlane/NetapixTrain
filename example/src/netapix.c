@@ -50,7 +50,7 @@ int train_mode(int argc, char *argv[]) {
         params_save_path = make_output_save_path(weights_path, DEFAULT_OUTPUT_WEIGHTS_PARAMS_DIRECTORY_NAME);
     } else {
         output_path = make_output_save_path(npx_path, DEFAULT_OUTPUT_WEIGHTS_DIRECTORY_NAME);
-        params_save_path = output_path;
+        params_save_path = make_output_save_path(npx_path, DEFAULT_OUTPUT_WEIGHTS_PARAMS_DIRECTORY_NAME);
     }
     
     if (prepare_output_path(output_path, 0) || prepare_output_path(params_save_path, 1)) {

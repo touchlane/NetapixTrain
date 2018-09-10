@@ -18,20 +18,26 @@ make
 ```
 ./example/bin/netapix train [NPX_PATH] [NPT_PATH]  
 ```
-Output folder `weights` will be created at the `[NPX_PATH]` containing copied configuration file `.npx` and trained weights `.npw`.
+Folders `weights` and `weights/params` will be created at the `[NPX_PATH]`.   
+- `weights` for trained weights `.npw` file.   
+- `weights/params` for copied configuration `.npx` file.
+
+
 ### Continue training existing model
 ```
 ./example/bin/netapix train [NPX_PATH] [NPT_PATH] [NPW_PATH]  
 ```
 Folders `weights` and `weights/params` will be created at the `[NPW_PATH]`.   
-- `weights` for new trained weights `.npw`.   
-- `weights/params` for copied configuration file `.npx` and `.npw` weights that were used to continue training.   
+- `weights` for new trained weights `.npw` file.   
+- `weights/params` for copied configuration `.npx` and `.npw` files that were used to continue training.
+
+
 ### Test the model
 ```
 ./example/bin/netapix run [NPI_PATH] [NPW_PATH] [OUTPUT_PATH]  
 ```
 Output file `.npo` will be created under `[OUTPUT_PATH]` folder.  
-`[OUTPUT_PATH]` is optional. Default value – `./example/bin/output/`.
+`[OUTPUT_PATH]` is optional. Default value at executable filepath – `./example/bin/output/`.
 
 
 # Documentation
