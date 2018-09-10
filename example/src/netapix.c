@@ -71,18 +71,21 @@ int run_mode(int argc, char *argv[]) {
     }
     char *input_path = argv[2];
     char *weights_path = argv[3];
-    char *output_path = (argc > 4) ? argv[4] : NULL;
-    
-    output_path = make_output_save_path(output_path ? output_path : "./", DEFAULT_OUTPUT_RUN_DIRECTORY_NAME);
+    char *output_path = (argc > 4) ? strdup(argv[4]) : NULL;
+
+    if (!output_path) {
+        output_path = make_output_save_path("./", DEFAULT_OUTPUT_RUN_DIRECTORY_NAME);
+    }
+
     if (prepare_output_path(output_path, 1)) {
         return 0;
     }
-    
+
     char *input_name = remove_ext(last_path_component(input_path));
     output_path = realloc(output_path, (strlen(output_path) +
                                         strlen(input_name) +
                                         strlen(".npo") + 1) * sizeof(*output_path));
-    sprintf(output_path, "%s%s.npo", output_path, input_name);
+    sprintf(output_path, "%s/%s.npo", output_path, input_name);
     
     run(input_path, weights_path, output_path);
     return 0;
