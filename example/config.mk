@@ -11,7 +11,7 @@ EXEC         = $(EXEC_PATH)/netapix
 # Compiler, Include, Linker Defines.
 CC           = gcc
 APP_INCLUDE  = -I./include/ -I.$(APP_SRC_DIR)
-APP_CFLAGS   = $(APP_INCLUDE) -w
+APP_CFLAGS   = $(APP_INCLUDE) -Wall -O3
 LIBPATH      = -L./lib -lnetapix
 LFLAGS       = -o $(EXEC) $(LIBPATH)
 
