@@ -100,6 +100,22 @@ activation=msqe
 
 ### .npw
 
+Particular format for files with weights. Every .npw file follows the same structure:
+```
+[number of layers]
+
+[layer config]
+[weights]
+
+[layer config]
+[weights]
+.
+.
+.
+[layer config]
+[weights]
+```
+
 ### .npt
 
 ### .npi
