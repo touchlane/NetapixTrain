@@ -118,9 +118,15 @@ Particular format for files with weights. Every .npw file follows the same struc
 
 ### .npt
 
+Distinct file format for test binary files of the [Netapix](https://github.com/touchlane/Netapix/) framework. It consists of numerical representations of pixels of the target image as an one-dimensional array.
+
 ### .npi
 
+Custom format for input binary files of the [Netapix](https://github.com/touchlane/Netapix/) framework. Contains an image as a scope of numbers in range from 0 to 1 written in a row.
+
 ### .npo
+
+Peculiar format for output binary files of the [Netapix](https://github.com/touchlane/Netapix/) framework. This format has the same structure as .npi format.
 
 ## Config
 
