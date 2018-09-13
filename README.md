@@ -121,15 +121,15 @@ Particular format for binary files with weights. Every .npw file follows the sam
 
 ### .npt
 
-Distinct file format for test binary files of the [Netapix](https://github.com/touchlane/Netapix/) framework. It consists of numerical representations of pixels of the target image as an one-dimensional array.
+Distinct file format for train binary files of the [Netapix](https://github.com/touchlane/Netapix/) framework. It consists of two consequtive one-dimensional arrays with float32.
 
 ### .npi
 
-Custom format for input binary files of the [Netapix](https://github.com/touchlane/Netapix/) framework. Contains an image as a scope of numbers in range from 0 to 1 written in a row.
+Custom format for input binary files of the [Netapix](https://github.com/touchlane/Netapix/) framework. Contains two consequtive one-dimensional arrays with numbers of float32 format.
 
 ### .npo
 
-Peculiar format for output binary files of the [Netapix](https://github.com/touchlane/Netapix/) framework. This format has the same structure as .npi format.
+Peculiar format for output binary files of the [Netapix](https://github.com/touchlane/Netapix/) framework. This format has one-dimensional array of 4-byte float inside.
 
 ## Config
 
