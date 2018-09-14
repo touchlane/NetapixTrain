@@ -74,7 +74,7 @@ float msqe(float *vector, float *target, int lenght) {
         tmp = target[i] - vector[i];
         error = error + tmp*tmp;
     }
-    return error/2;
+    return error / lenght;
 }
 
 float cross_entropy(float *vector, float *target, int lenght) {

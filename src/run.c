@@ -255,7 +255,20 @@ int read_layer_configs_from_npw(char *path, layer_config **configs, int *layers_
             fclose(file);
             return ERROR_FORMAT;
         }
-        int values_count = ((*configs)[i].input_length + 1) * (*configs)[i].output_length;
+        int values_count = 0;
+        layer_config config = (*configs)[i];
+        layer_type type = (*configs)[i].type;
+        switch (type) {
+            case CONNECTED:
+                values_count = ((*configs)[i].input_length + 1) * (*configs)[i].output_length;
+                break;
+            case CONVOLUTIONAL:
+                values_count = config.width * config.height * config.input_depth * config.channels + config.channels;
+                break;
+            default:
+                printf(FATAL_ERROR_MAKE_WEIGHTS_FAIL_MSG);
+                break;
+        }
         fseek(file, values_count * sizeof(float), SEEK_CUR);
     }
     fclose(file);

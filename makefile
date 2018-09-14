@@ -9,7 +9,7 @@ ALIB         = libnetapix.a
 # Compiler, Include, Linker Defines.
 CC           = gcc
 LIB_INCLUDE  = -I./include/ -I./src/
-LIB_CFLAGS   = $(LIB_INCLUDE) -w
+LIB_CFLAGS   = $(LIB_INCLUDE) -Wall -O3
 
 all: example
 

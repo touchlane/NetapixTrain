@@ -161,8 +161,8 @@ int test_math_msqe(void) {
     float error3 = msqe(vector3, target, length);
     
     assert_equal_float(error1, 0);
-    assert_equal_float(error2, 1.5);
-    assert_equal_float(error3, 2);
+    assert_equal_float(error2, 0.75);
+    assert_equal_float(error3, 1);
 
     return 0;
 }

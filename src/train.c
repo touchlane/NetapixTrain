@@ -183,9 +183,7 @@ int train(char *npx_path, char *train_path, char *weights_path, char *output_pat
     int i, j;
     
     int epoch = 0;
-    printf("Initial validation...\n");
-    root->params->prev_error = cross_validation(validation, 0);
-    printf("Epoch:%d  Iteration:0  Cross Validation Error:%f\n", epoch, root->params->prev_error);
+    root->params->prev_error = -1;
     if (output_path != NULL) {
         char *initial_weights_path = malloc((strlen(output_path) +
                                              strlen("0.npw") + 1) * sizeof(*initial_weights_path));
@@ -195,7 +193,7 @@ int train(char *npx_path, char *train_path, char *weights_path, char *output_pat
         free(initial_weights_path);
     }
     int iteration = 0;
-    while (root->params->prev_error > root->npx->settings->accuracy) {
+    while (root->params->prev_error > root->npx->settings->accuracy || root->params->prev_error == -1) {
         root->params->train_set_number = epoch % root->data_set->count;
         shuffle(root->data_set->training_set[root->params->train_set_number]);
         for (i = 0; i < iterations_in_seen; i++) {
@@ -226,7 +224,11 @@ int train(char *npx_path, char *train_path, char *weights_path, char *output_pat
                 sprintf(buffer_path, "%s%d.npw", output_path, iteration);
                 write_npw(buffer_path, root->weights, root->npx->net, root->npx->size - 1);
             }
-            printf("Iteration:%d  Error:%f\n", iteration, average(root->params->batch_errors, root->npx->settings->batch));
+            float avgError = average(root->params->batch_errors, root->npx->settings->batch);
+            if(root->params->prev_error == -1) {
+                root->params->prev_error = avgError;
+            }
+            printf("Iteration:%d  Error:%f\n", iteration, avgError);
         }
         float error = cross_validation(validation, root->params->train_set_number);
         epoch = epoch + 1;

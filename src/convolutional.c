@@ -145,8 +145,12 @@ void calc_сonvolutional_сorrections(convolutional_layer *layer) {
 int free_convolutional_layer(convolutional_layer *layer, int is_first_layer) {
     if (is_first_layer) {
         free(layer->input);
-        free_tensor(layer->previous_gradients_tensor, layer->h, layer->z);
-        free_tensor(layer->input_derivative_tensor, layer->h, layer->z);
+//        if (layer->previous_gradients_tensor != NULL) {
+//            free_tensor(layer->previous_gradients_tensor, layer->h, layer->z);
+//        }
+//        if (layer->input_derivative_tensor != NULL) {
+//            free_tensor(layer->input_derivative_tensor, layer->h, layer->z);
+//        }
     }
     free_tensor(layer->input_tensor , layer->h, layer->z);
     free_array_of_tensors(layer->weights, layer->h1, layer->z1, layer->z2);
