@@ -115,8 +115,8 @@ Particular format for binary files with weights. Every .npw file follows the sam
 .
 .
 [layer config] [4 bytes * 15]
-[weights] [4 bytes * n_n]
-[biases] [4 bytes * m_m]
+[weights] [4 bytes * n_k]
+[biases] [4 bytes * m_l]
 ```
 
 ### .npt
