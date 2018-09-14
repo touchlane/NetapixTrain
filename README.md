@@ -100,11 +100,36 @@ activation=msqe
 
 ### .npw
 
+Particular format for binary files with weights. Every .npw file follows the same structure:
+```
+[number of layers][4 bytes]
+
+[layer config]
+[weights]
+[biases]
+
+[layer config]
+[weights]
+[biases]
+.
+.
+.
+[layer config]
+[weights]
+[biases]
+```
+
 ### .npt
+
+Distinct file format for train binary files of the [Netapix](https://github.com/touchlane/Netapix/) framework. It consists of two consequtive one-dimensional arrays with float32.
 
 ### .npi
 
+Custom format for input binary files of the [Netapix](https://github.com/touchlane/Netapix/) framework. Contains two consequtive one-dimensional arrays with numbers of float32 format.
+
 ### .npo
+
+Peculiar format for output binary files of the [Netapix](https://github.com/touchlane/Netapix/) framework. This format has one-dimensional array of 4-byte float inside.
 
 ## Config
 
