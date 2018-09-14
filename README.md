@@ -104,19 +104,19 @@ Particular format for binary files with weights. Every .npw file follows the sam
 ```
 [number of layers][4 bytes]
 
-[layer config]
-[weights]
-[biases]
+[layer config] [4 bytes * 15]
+[weights] [4 bytes * n]
+[biases] [4 bytes * m]
 
-[layer config]
-[weights]
-[biases]
+[layer config] [4 bytes * 15]
+[weights] [4 bytes * n_1]
+[biases] [4 bytes * m_1]
 .
 .
 .
-[layer config]
-[weights]
-[biases]
+[layer config] [4 bytes * 15]
+[weights] [4 bytes * n_n]
+[biases] [4 bytes * m_m]
 ```
 
 ### .npt
