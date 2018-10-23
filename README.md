@@ -5,7 +5,7 @@
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-MacOS-lightgrey.svg)
 
-Netapix is a neural network framework written on pure C. For now it supports CPU mode only. The purpose of the project is investigation of  deep neural networks behavior and designing new and effective architectures of convolutional networks.
+NetapixTrain is a neural network framework written on pure C. For now it supports CPU mode only. The purpose of the project is investigation of  deep neural networks behavior and designing new and effective architectures of convolutional networks.
 
 # Installation
 ```
@@ -121,15 +121,15 @@ Particular format for binary files with weights. Every .npw file follows the sam
 
 ### .npt
 
-Distinct file format for train binary files of the [Netapix](https://github.com/touchlane/Netapix/) framework. It consists of two consequtive one-dimensional arrays with float32.
+Distinct file format for train binary files of the NetapixTrain framework. It consists of two consequtive one-dimensional arrays with float32.
 
 ### .npi
 
-Custom format for input binary files of the [Netapix](https://github.com/touchlane/Netapix/) framework. Contains two consequtive one-dimensional arrays with numbers of float32 format.
+Custom format for input binary files of the NetapixTrain framework. Contains two consequtive one-dimensional arrays with numbers of float32 format.
 
 ### .npo
 
-Peculiar format for output binary files of the [Netapix](https://github.com/touchlane/Netapix/) framework. This format has one-dimensional array of 4-byte float inside.
+Peculiar format for output binary files of the NetapixTrain framework. This format has one-dimensional array of 4-byte float inside.
 
 ## Config
 
