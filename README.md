@@ -209,7 +209,7 @@ Subsidiary tools for the NetapixTrain framework. These tools are all you need in
 | [.npo => .png](https://github.com/touchlane/NetapixTrain/tree/npo_to_png) | converts .npo to .png |
 | [loss graph](https://github.com/touchlane/NetapixTrain/tree/loss_graph) | training progress visualisation |
 | [batch run](https://github.com/touchlane/NetapixTrain/tree/batch_run_script) | app execution for multiple inputs |
-| [test accuracy](https://github.com/touchlane/NetapixTrain/tree/accuracy_script) | model accuracy evaluation |
+| [test accuracy](https://github.com/touchlane/NetapixTrain/tree/accuracy_test) | model accuracy evaluation |
 | [image normalizer](https://github.com/touchlane/NetapixTrain/tree/image_normalizer) | images adjusting |
-| [.npw reader](https://github.com/touchlane/NetapixTrain/tree/npw_interpreter) | looking inside weight files  |
+| [.npw reader](https://github.com/touchlane/NetapixTrain/tree/npw_reader) | looking inside weight files  |
 | [.png => .jpg](https://github.com/touchlane/NetapixTrain/tree/png_to_jpg) | simple convertation .png to .jpg 
